@@ -1,0 +1,182 @@
+[
+  {
+    "name": "ICICI Platinum Chip Card",
+    "issuer": "ICICI",
+    "fees": "0",
+    "rewards": "cashback, dining",
+    "eligibility": "income > 2.5 LPA",
+    "perks": "1% fuel surcharge waiver, 15% off on dining at partner restaurants",
+    "link": "https://dummy-link.com/apply/icici-chip"
+  },
+  {
+    "name": "SBI Card Elite",
+    "issuer": "SBI",
+    "fees": "4999",
+    "rewards": "travel, lounge, movies",
+    "eligibility": "income > 12 LPA",
+    "perks": "6 complimentary international lounge visits, free movie tickets every month",
+    "link": "https://dummy-link.com/apply/sbi-elite"
+  },
+  {
+    "name": "Axis Bank MY Zone Credit Card",
+    "issuer": "Axis",
+    "fees": "500",
+    "rewards": "entertainment, cashback",
+    "eligibility": "income > 4 LPA",
+    "perks": "Buy 1 Get 1 free movie ticket on Paytm, 40% off Zomato orders",
+    "link": "https://dummy-link.com/apply/axis-myzone"
+  },
+  {
+    "name": "HDFC Millennia Credit Card",
+    "issuer": "HDFC",
+    "fees": "1000",
+    "rewards": "cashback, online shopping",
+    "eligibility": "income > 5 LPA",
+    "perks": "5% cashback on Amazon/Flipkart, free lounge access",
+    "link": "https://dummy-link.com/apply/hdfc-millennia"
+  },
+  {
+    "name": "Amazon Pay ICICI Credit Card",
+    "issuer": "ICICI",
+    "fees": "0",
+    "rewards": "cashback, Amazon rewards",
+    "eligibility": "income > 2 LPA",
+    "perks": "5% cashback for Prime users, 1% fuel surcharge waiver",
+    "link": "https://dummy-link.com/apply/amazon-icici"
+  },
+  {
+    "name": "YES Bank Prosperity Edge Credit Card",
+    "issuer": "YES Bank",
+    "fees": "399",
+    "rewards": "lifestyle, shopping",
+    "eligibility": "income > 4.5 LPA",
+    "perks": "Complimentary lounge visits, reward points on all spends",
+    "link": "https://dummy-link.com/apply/yes-edge"
+  },
+  {
+    "name": "AU Small Finance Bank Zenith+ Credit Card",
+    "issuer": "AU Bank",
+    "fees": "4999",
+    "rewards": "luxury, travel",
+    "eligibility": "income > 18 LPA",
+    "perks": "12 international lounge visits, hotel vouchers, luxury privileges",
+    "link": "https://dummy-link.com/apply/au-zenith"
+  },
+  {
+    "name": "IndusInd Bank Legend Credit Card",
+    "issuer": "IndusInd",
+    "fees": "0",
+    "rewards": "travel, movies",
+    "eligibility": "income > 5 LPA",
+    "perks": "Buy 1 Get 1 free movie ticket, complimentary lounge access",
+    "link": "https://dummy-link.com/apply/indusind-legend"
+  },
+  {
+    "name": "HSBC Smart Value Credit Card",
+    "issuer": "HSBC",
+    "fees": "0",
+    "rewards": "cashback, EMIs",
+    "eligibility": "income > 3 LPA",
+    "perks": "10% cashback on online spends, EMI conversion, 3 lounge visits per year",
+    "link": "https://dummy-link.com/apply/hsbc-smart"
+  },
+  {
+    "name": "Standard Chartered Super Value Titanium",
+    "issuer": "Standard Chartered",
+    "fees": "750",
+    "rewards": "fuel, utility bills",
+    "eligibility": "income > 3.6 LPA",
+    "perks": "5% cashback on fuel and utility bills, 1% surcharge waiver",
+    "link": "https://dummy-link.com/apply/stanchar-titanium"
+  },
+  {
+    "name": "Kotak Essentia Platinum Credit Card",
+    "issuer": "Kotak",
+    "fees": "1499",
+    "rewards": "groceries, cashback",
+    "eligibility": "income > 4.5 LPA",
+    "perks": "10% savings on groceries, 2 reward points on every Rs. 100 spent",
+    "link": "https://dummy-link.com/apply/kotak-essentia"
+  },
+  {
+    "name": "IDFC FIRST Millennia Credit Card",
+    "issuer": "IDFC FIRST",
+    "fees": "0",
+    "rewards": "cashback, lifestyle",
+    "eligibility": "income > 3.6 LPA",
+    "perks": "1.5% reward on all spends, 4 complimentary railway lounge visits",
+    "link": "https://dummy-link.com/apply/idfc-millennia"
+  },
+  {
+    "name": "Bank of Baroda Easy Credit Card",
+    "issuer": "BOB",
+    "fees": "500",
+    "rewards": "fuel, dining",
+    "eligibility": "income > 2.5 LPA",
+    "perks": "1% fuel surcharge waiver, 5X reward points on online dining",
+    "link": "https://dummy-link.com/apply/bob-easy"
+  },
+  {
+    "name": "RBL Bank Platinum Delight Credit Card",
+    "issuer": "RBL",
+    "fees": "1000",
+    "rewards": "rewards, weekend offers",
+    "eligibility": "income > 4 LPA",
+    "perks": "Double reward points on weekends, milestone benefits",
+    "link": "https://dummy-link.com/apply/rbl-delight"
+  },
+  {
+    "name": "HDFC Diners Club Privilege Card",
+    "issuer": "HDFC",
+    "fees": "2500",
+    "rewards": "lounge, travel",
+    "eligibility": "income > 10 LPA",
+    "perks": "6 international lounge visits, 5X rewards on travel & dining",
+    "link": "https://dummy-link.com/apply/hdfc-diners"
+  },
+  {
+    "name": "IRCTC SBI Platinum Card",
+    "issuer": "SBI",
+    "fees": "500",
+    "rewards": "travel, railway bookings",
+    "eligibility": "income > 2.5 LPA",
+    "perks": "10% value back on IRCTC train bookings, 1% transaction fee waiver, fuel surcharge waiver",
+    "link": "https://dummy-link.com/apply/irctc-sbi"
+  },
+  {
+    "name": "HDFC Bharat Cashback Card",
+    "issuer": "HDFC",
+    "fees": "500",
+    "rewards": "fuel, utility, rural",
+    "eligibility": "income > 2 LPA",
+    "perks": "5% cashback on fuel, bill payments & groceries, 1% fuel surcharge waiver",
+    "link": "https://dummy-link.com/apply/hdfc-bharat"
+  },
+  {
+    "name": "Axis Bank Pride Platinum Card",
+    "issuer": "Axis Bank",
+    "fees": "250",
+    "rewards": "lifestyle, defence",
+    "eligibility": "income > 3 LPA (For Armed Forces only)",
+    "perks": "Customised for Indian defence personnel, reward points on all spends",
+    "link": "https://dummy-link.com/apply/axis-pride"
+  },
+  {
+    "name": "Kotak Silk Inspire Credit Card",
+    "issuer": "Kotak Mahindra",
+    "fees": "599",
+    "rewards": "lifestyle, women-focused",
+    "eligibility": "income > 3.6 LPA",
+    "perks": "Tailored for women: dining, shopping rewards, milestone benefits, fraud protection",
+    "link": "https://dummy-link.com/apply/kotak-silk"
+  },
+  {
+    "name": "ICICI Bank Student Travel Card",
+    "issuer": "ICICI",
+    "fees": "499",
+    "rewards": "students, forex",
+    "eligibility": "must be an international student",
+    "perks": "Ideal for students studying abroad, forex reloads, travel insurance, discounts on coaching",
+    "link": "https://dummy-link.com/apply/icici-student"
+  }
+]

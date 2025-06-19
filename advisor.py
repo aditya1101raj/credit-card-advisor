@@ -1,0 +1,90 @@
+from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_community.vectorstores import Chroma
+from transformers import AutoModelForSeq2SeqLM, AutoTokenizer, pipeline
+from langchain_community.llms import HuggingFacePipeline
+
+# Setup model
+model_name = "google/flan-t5-small"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
+
+pipe = pipeline("text2text-generation", model=model, tokenizer=tokenizer)
+llm = HuggingFacePipeline(pipeline=pipe)
+
+# Load ChromaDB
+db = Chroma(persist_directory="db/", embedding_function=HuggingFaceEmbeddings())
+
+# Conversation state
+conversation_state = {
+    "income": None,
+    "spending": None,
+    "benefits": None,
+    "existing_cards": None,
+    "credit_score": None
+}
+
+questions = [
+    "What is your monthly income?",
+    "Where do you spend the most? (fuel, groceries, travel, etc.)",
+    "What kind of benefits do you prefer? (cashback, lounge access, travel points,etc)",
+    "Do you already have any credit cards?",
+    "Do you know your credit score? You can say 'unknown' if you're not sure."
+]
+
+keys = list(conversation_state.keys())
+step_index = 0
+session_started = False
+
+def get_response(user_input):
+    global step_index, session_started
+
+    cleaned_input = user_input.strip().lower()
+
+    # Require greeting to start
+    if not session_started:
+        if cleaned_input not in ["hi", "hello", "start"]:
+            return "Please type 'Hi' or 'Start' to begin the credit card recommendation process."
+        session_started = True
+        return "Great! Let's get started. " + questions[step_index]
+
+    # Store the answer
+    if step_index < len(keys):
+        conversation_state[keys[step_index]] = user_input
+        step_index += 1
+
+    # Ask next question if available
+    if step_index < len(questions):
+        return questions[step_index]
+
+    # All data collected — generate summary and recommend
+    summary = (
+        f"My monthly income is {conversation_state['income']} rupees. "
+        f"I mostly spend on {conversation_state['spending']}. "
+        f"I'm looking for credit cards that offer {conversation_state['benefits']}. "
+        f"I already have these cards: {conversation_state['existing_cards']}. "
+        f"My credit score is {conversation_state['credit_score']}."
+    )
+
+    results = db.similarity_search(summary, k=3)
+
+    if not results:
+        return "Sorry, I couldn't find matching cards."
+
+    response = " 💳 Here are some credit card recommendations based on your profile:\n"
+    for i, doc in enumerate(results, 1):
+        name = doc.metadata.get('name', 'Card')
+        perks = doc.metadata.get('perks', 'No perks listed')
+        fees = doc.metadata.get('fees', 'N/A')
+        response += f"\n{i}. **{name}** — ₹{fees} annual fee — {perks}"
+    return response
+def reset_conversation():
+    global step_index, session_started, conversation_state
+    step_index = 0
+    session_started = False
+    conversation_state = {
+        "income": None,
+        "spending": None,
+        "benefits": None,
+        "existing_cards": None,
+        "credit_score": None
+    }
