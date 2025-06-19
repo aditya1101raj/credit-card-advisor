@@ -3,9 +3,10 @@ import sys
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain_community.vectorstores import Chroma
+
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer, pipeline
 from langchain_community.llms import HuggingFacePipeline
+from chromadb import PersistentClient 
 
 # Setup model
 model_name = "google/flan-t5-small"
