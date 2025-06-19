@@ -1,9 +1,8 @@
-torch
-accelerate
+pysqlite3-binary>=0.5.2
 langchain>=0.1.14
 langchain-community>=0.0.25
-transformers>=4.41.0
 chromadb>=0.4.24
-sentence-transformers
 streamlit
-pysqlite3-binary
+transformers
+sentence-transformers
+
