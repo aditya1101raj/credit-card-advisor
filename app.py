@@ -1,6 +1,16 @@
 import streamlit as st
 from advisor import get_response
-import pysqlite3 as sqlite3
+
+
+import sys
+import os
+
+os.environ["TOKENIZERS_PARALLELISM"] = "false"  # optional warning suppression
+
+# Patch sqlite3 to use pysqlite3 (which is >= 3.35)
+import pysqlite3
+sys.modules["sqlite3"] = pysqlite3
+
 
 st.set_page_config(page_title="Credit Card Advisor", layout="centered")
 st.title("💳 AI Credit Card Advisor")
