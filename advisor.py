@@ -16,8 +16,33 @@ model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
 pipe = pipeline("text2text-generation", model=model, tokenizer=tokenizer)
 llm = HuggingFacePipeline(pipeline=pipe)
 
-# Load ChromaDB
-db = Chroma(persist_directory="db/", embedding_function=HuggingFaceEmbeddings())
+from langchain.document_loaders import JSONLoader
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+
+# Model setup
+embedding_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+
+# Vector store directory
+persist_dir = "db"
+
+# Build Chroma DB on first run
+if not os.path.exists(persist_dir):
+    from langchain.vectorstores import Chroma as ChromaSetup
+
+    loader = JSONLoader(file_path="cards.json", jq_schema=".[]", text_content=False)
+    data = loader.load()
+
+    splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
+    texts = splitter.split_documents(data)
+
+    ChromaSetup.from_documents(
+        documents=texts,
+        embedding=embedding_model,
+        persist_directory=persist_dir
+    ).persist()
+
+# Load DB (every time)
+db = Chroma(persist_directory=persist_dir, embedding_function=embedding_model)
 
 # Conversation state
 conversation_state = {
