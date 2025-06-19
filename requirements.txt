@@ -6,3 +6,4 @@ transformers>=4.41.0
 chromadb>=0.4.24
 sentence-transformers
 streamlit
+pysqlite3-binary
