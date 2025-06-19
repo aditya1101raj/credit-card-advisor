@@ -36,7 +36,7 @@ if not os.path.exists(persist_dir):
     splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
     
     for doc in data:
-    doc.page_content = f"{doc.metadata.get('name', '')} {doc.metadata.get('perks', '')} {doc.metadata.get('fees', '')}"
+        doc.page_content = f"{doc.metadata.get('name', '')} {doc.metadata.get('perks', '')} {doc.metadata.get('fees', '')}"
 
     texts = splitter.split_documents(data)
 
