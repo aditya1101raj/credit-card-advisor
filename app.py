@@ -1,10 +1,11 @@
-import streamlit as st
-from advisor import get_response
-
-
 __import__('pysqlite3')
 import sys
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
+import pysqlite3 as sqlite3
+import streamlit as st
+from advisor import get_response
+
 
 
 st.set_page_config(page_title="Credit Card Advisor", layout="centered")
