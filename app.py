@@ -1,5 +1,6 @@
 import streamlit as st
 from advisor import get_response
+import pysqlite3 as sqlite3
 
 st.set_page_config(page_title="Credit Card Advisor", layout="centered")
 st.title("💳 AI Credit Card Advisor")
