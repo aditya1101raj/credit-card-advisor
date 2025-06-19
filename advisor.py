@@ -31,8 +31,13 @@ if not os.path.exists(persist_dir):
 
     loader = JSONLoader(file_path="cards.json", jq_schema=".[]", text_content=False)
     data = loader.load()
+    print("[DEBUG] Loaded", len(data), "cards from JSON")
 
     splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
+    
+    for doc in data:
+    doc.page_content = f"{doc.metadata.get('name', '')} {doc.metadata.get('perks', '')} {doc.metadata.get('fees', '')}"
+
     texts = splitter.split_documents(data)
 
     ChromaSetup.from_documents(
@@ -41,8 +46,12 @@ if not os.path.exists(persist_dir):
         persist_directory=persist_dir
     ).persist()
 
+print("[DEBUG] Chroma DB created successfully.")
+
 # Load DB (every time)
 db = Chroma(persist_directory=persist_dir, embedding_function=embedding_model)
+print("[DEBUG] Loaded DB with", len(db.get()['documents']), "documents")
+
 
 # Conversation state
 conversation_state = {
@@ -96,6 +105,7 @@ def get_response(user_input):
     )
 
     results = db.similarity_search(summary, k=3)
+    print("[DEBUG] Querying with:", summary)
 
     if not results:
         return "Sorry, I couldn't find matching cards."
